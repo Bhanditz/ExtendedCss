@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>ExtendedSelector tests</title>
+    <link rel="stylesheet" href="../qunit/qunit-2.5.1.css">
+</head>
+<body>
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+<style type="text/css">
+    body>.container { display:none!important; }
+</style>
+<div class="container">
+
+    <div class="starter-template">
+        <h1>Test template</h1>
+
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a
+            mostly barebones HTML document.</p>
+
+        <div id="test-id-div" i18n="test-attr-i18n">
+            <div id="test-div" class="test-class test-class-two">
+                <a href="test.html" class="a-test-class a-test-class-two a-test-class-three"/>
+                <h2>
+                    <div>
+                        <a href="/test/"><time class="g-time" title=" 8 июля 2016" datetime=" 15:00,  8 июля 2016">15:00</time><br/>adg-test</a>
+                    </div>
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div id="test-if-not">
+        <div>
+            <div class="test-class"></div>
+        </div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <style type="text/css">
+        #test-matches-css > #test-div-background {
+            background: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+        }
+        #test-matches-css > #test-div-before::before {
+            content: "Try to find me";
+            color: #fff;
+        }
+        #test-matches-css > #test-div-after::after {
+            content: "Try to find me";
+            color: #fff;
+        }
+    </style>
+    <div id="test-matches-css">
+        <div id="test-div-background"></div>
+        <div id="test-div-before"></div>
+        <div id="test-div-after"></div>
+    </div>
+
+    <div id="test-properties">
+        <div id="test-properties-background"></div>
+        <div id="test-properties-has">
+            <div id="test-properties-has-child"></div>
+        </div>
+        <div id="test-properties-dynamic"></div>
+        <div id="test-properties-dynamic-next"></div>
+        <div id="test-properties-dynamic-2">
+            <style id="dynamic-style-2">
+                #test-properties-dynamic-2::after { content: " " }
+            </style>
+        </div>
+        <div id="test-properties-dynamic-3">
+            <style id="dynamic-style-3">
+                #test-properties-dynamic-3::before {content: " " }
+            </style>
+        </div>
+    </div>
+    <style>
+        #test-properties-background { background: #111; }
+        #test-properties-has-child { background: #111; }
+    </style>
+
+    <div id="test-properties-ignored-stylesheets">
+        <div id="test-properties-ignored-stylesheets-background"></div>
+    </div>
+
+    <div id="test-opacity-property">
+        <style>
+            #test-opacity-property { opacity: 0.9; }
+        </style>
+    </div>
+    <style id="ignored-stylesheet">
+        #test-properties-ignored-stylesheets-background { background: #333; }
+    </style>
+
+</div>
+
+<script src="../qunit/qunit-2.5.1.js"></script>
+<script src="../../build/sizzle.patched.js"></script>
+<script src="../../build/utils.js"></script>
+<script src="../../build/style-property-matcher.js"></script>
+<script src="../../build/style-observer.js"></script>
+<script src="../../build/extended-css-parser.js"></script>
+<script src="../../build/extended-css-selector.js"></script>
+<script src="test-selector.js"></script>
+</body>
+</html>
